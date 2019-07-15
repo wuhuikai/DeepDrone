@@ -161,6 +161,7 @@ class Tello(object):
         Raises:
             RuntimeError: If no response is received within self.timeout seconds.
         """
+        self.response_client.pop()
         self.response_client.socket.sendto(command.encode('utf-8'), self.tello_address)
 
         if not with_return:
